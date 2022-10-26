@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/category_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,24 +16,12 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       title: 'Project',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Project'),
-        ),
-        body: Center(
-          child: Text(
-            'Project',
-            style: TextStyle(
-              fontSize: 35.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+      home: categoryScreen(),
     );
   }
 }
