@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/person_list.dart';
 
 class CategoryBox extends StatefulWidget {
   final String categoryTitle, imgSrc;
@@ -58,6 +59,16 @@ class _CategoryBoxState extends State<CategoryBox> {
       onTap: () {
         setState(() {
           selected = !selected;
+          print(widget.categoryTitle);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    PersonList(category: widget.categoryTitle)),
+          );
+
+          // ScaffoldMessenger.of(context).showSnackBar(
+          //     SnackBar(content: Text("Selected: ${widget.categoryTitle}")));
         });
       },
     );
