@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/date_time_screen.dart';
+import 'package:flutterapp/review_container.dart';
 import 'package:flutterapp/service_card_first.dart';
 import 'package:flutterapp/service_card_second.dart';
 
@@ -16,6 +18,7 @@ class _personServiceState extends State<personService> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.blue,
       ),
       backgroundColor: Color.fromARGB(255, 240, 240, 237),
       body: Container(
@@ -210,6 +213,47 @@ class _personServiceState extends State<personService> {
                     serviceCardSecond(),
                   ],
                 ),
+              ),
+
+              // Review container
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "Reviews",
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    side: BorderSide(
+                      color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.2),
+                      width: 0.2,
+                    ),
+                  ),
+                  color: Color.fromARGB(255, 237, 234, 234),
+                  elevation: 2.5,
+                  child: Column(
+                    children: [
+                      ReviewContainer(),
+                      ReviewContainer(),
+                      ReviewContainer(),
+                      ReviewContainer(),
+                    ],
+                  )),
+
+              // book button
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DateTimeScreen()),
+                  );
+                },
+                child: Text('Book Now'),
               )
             ],
           ),

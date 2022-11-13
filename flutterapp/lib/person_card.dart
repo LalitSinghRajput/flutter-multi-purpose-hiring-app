@@ -26,11 +26,13 @@ class _personCardState extends State<personCard> {
             width: 1,
           ),
         ),
-        color: Color.fromARGB(255, 240, 236, 236),
+        color: Color.fromARGB(255, 255, 255, 255),
         elevation: 5,
         child: Container(
           // color: Color.fromARGB(255, 238, 238, 241),
+          padding: EdgeInsets.all(10.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               // left profile image
               ClipRRect(

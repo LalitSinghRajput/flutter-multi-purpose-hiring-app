@@ -92,7 +92,7 @@ class _PersonListState extends State<PersonList> {
       appBar: AppBar(
         title: Text("Category: ${widget.category}"),
       ),
-      backgroundColor: Color.fromARGB(255, 242, 243, 250),
+      backgroundColor: Color.fromARGB(255, 236, 237, 240),
       body: Container(
         // child: Expanded(
         child: GridView.builder(
