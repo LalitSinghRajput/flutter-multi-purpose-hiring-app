@@ -33,8 +33,13 @@ class _BookingSuccessState extends State<BookingSuccess>
             child: Container(
               child: Column(
                 children: [
-                  Lottie.network(
-                    'https://assets6.lottiefiles.com/packages/lf20_sabvcsrv.json',
+                  // Lottie.network(
+                  //   'https://assets6.lottiefiles.com/packages/lf20_sabvcsrv.json',
+                  //   repeat: false,
+                  //   height: 250,
+                  // ),
+                  Lottie.asset(
+                    './images/success.json',
                     repeat: false,
                     height: 250,
                   ),

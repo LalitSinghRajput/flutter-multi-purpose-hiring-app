@@ -66,34 +66,6 @@ class _personServiceState extends State<personService> {
 
               Padding(padding: EdgeInsets.all(5.0)),
 
-              // Description
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  side: BorderSide(
-                    color: Color.fromARGB(255, 237, 230, 230).withOpacity(0.2),
-                    width: 1,
-                  ),
-                ),
-                elevation: 2.5,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      child: Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare diam id varius dignissim. Quisque luctus facilisis est vel suscipit. Mauris in luctus ex. Mauris a purus a purus feugiat commodo id id augue. Ut ex sapien, pharetra vel augue sit amet, convallis pretium arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac elementum mauris. Ut nec magna augue. Sed eleifend feugiat elit, ut tempus mauris ultrices quis. Duis et nisl leo.",
-                        style: TextStyle(
-                            fontSize: 15.0, fontWeight: FontWeight.w400),
-                        // textAlign: TextAlign.end,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
-              Padding(padding: EdgeInsets.all(5.0)),
-
               Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -198,6 +170,120 @@ class _personServiceState extends State<personService> {
               ),
 
               Padding(padding: EdgeInsets.all(5.0)),
+
+              // Description
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(
+                    color: Color.fromARGB(255, 237, 230, 230).withOpacity(0.2),
+                    width: 1,
+                  ),
+                ),
+                elevation: 2.5,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      child: Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare diam id varius dignissim. Quisque luctus facilisis est vel suscipit. Mauris in luctus ex. Mauris a purus a purus feugiat commodo id id augue. Ut ex sapien, pharetra vel augue sit amet, convallis pretium arcu. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac elementum mauris. Ut nec magna augue. Sed eleifend feugiat elit, ut tempus mauris ultrices quis. Duis et nisl leo.",
+                        style: TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.w400),
+                        // textAlign: TextAlign.end,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              Padding(padding: EdgeInsets.all(5.0)),
+
+              // Padding(padding: EdgeInsets.all(5.0)),
+
+              // email
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(
+                    color: Color.fromARGB(255, 237, 230, 230).withOpacity(0.2),
+                    width: 1,
+                  ),
+                ),
+                elevation: 2.5,
+                color: Colors.blue,
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.email,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
+                      Padding(padding: EdgeInsets.all(5)),
+                      Text(
+                        'Email',
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      Padding(padding: EdgeInsets.all(5.0)),
+                      Text(
+                        'rohan34@gmail.com',
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              // Contact no
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(
+                    color: Color.fromARGB(255, 237, 230, 230).withOpacity(0.2),
+                    width: 1,
+                  ),
+                ),
+                elevation: 2.5,
+                color: Colors.blue,
+                child: Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.call,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
+                      Padding(padding: EdgeInsets.all(5)),
+                      Text(
+                        'Contact',
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      Padding(padding: EdgeInsets.all(5.0)),
+                      Text(
+                        '9545781245',
+                        style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
 
               // Services Providing Container
               Container(
