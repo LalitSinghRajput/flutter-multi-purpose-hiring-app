@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/booking_success_screen.dart';
 import 'package:intl/intl.dart';
-import 'package:lottie/lottie.dart';
 
 class DateTimeScreen extends StatefulWidget {
   const DateTimeScreen({super.key});
