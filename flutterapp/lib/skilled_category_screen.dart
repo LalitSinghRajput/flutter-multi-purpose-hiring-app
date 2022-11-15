@@ -32,8 +32,8 @@ class _SkilledCategoryState extends State<SkilledCategory> {
       "imgSrc": 'catering',
     },
     {
-      "title": "Carpenter",
-      "imgSrc": 'carpenter',
+      "title": "Barber",
+      "imgSrc": 'barber',
     },
     {
       "title": "Painter",

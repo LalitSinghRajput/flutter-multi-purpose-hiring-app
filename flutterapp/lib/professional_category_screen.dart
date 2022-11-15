@@ -27,12 +27,12 @@ class _ProfessionalCategoryState extends State<ProfessionalCategory> {
       "imgSrc": 'architect',
     },
     {
-      "title": "Doctor",
-      "imgSrc": 'doctor',
+      "title": "Accountant",
+      "imgSrc": 'accountant',
     },
     {
-      "title": "Architect",
-      "imgSrc": 'architect',
+      "title": "Developer",
+      "imgSrc": 'developer',
     },
     {
       "title": "Doctor",
