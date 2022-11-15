@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/my_bookings.dart';
 import 'package:flutterapp/professional_category_screen.dart';
 import 'package:flutterapp/profile_screen.dart';
 import 'package:flutterapp/skilled_category_screen.dart';
@@ -172,8 +173,13 @@ class _categoryScreenState extends State<categoryScreen>
             ),
             GButton(
               icon: Icons.notification_add_sharp,
-              text: 'Home',
-              onPressed: () {},
+              text: 'Notifications',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyBookings()),
+                );
+              },
             ),
             GButton(
               icon: Icons.account_balance_sharp,
