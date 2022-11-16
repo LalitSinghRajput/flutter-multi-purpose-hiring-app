@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/booking_card.dart';
-import 'package:flutterapp/booking_response.dart';
 import 'package:flutterapp/functions.dart';
 import 'package:flutterapp/no_bookings.dart';
-import 'package:flutterapp/your_bookings.dart';
 
-class MyBookings extends StatefulWidget {
-  const MyBookings({super.key});
+class YourBookings extends StatefulWidget {
+  const YourBookings({super.key});
 
   @override
-  State<MyBookings> createState() => _MyBookingsState();
+  State<YourBookings> createState() => _YourBookingsState();
 }
 
-class _MyBookingsState extends State<MyBookings> {
+class _YourBookingsState extends State<YourBookings> {
   List Bookings = [];
   List AllUsers = [];
   List BookingsList = [];
@@ -69,19 +67,8 @@ class _MyBookingsState extends State<MyBookings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bookings'),
+        title: Text('Your Bookings'),
       ),
-      // body: Container(
-      //   color: Color.fromARGB(255, 234, 230, 230),
-      //   padding: EdgeInsets.all(20.0),
-      //   child: Column(
-      //     children: [
-      //       BookingCard(),
-      //       BookingCard(),
-      //       BookingCard(),
-      //     ],
-      //   ),
-      // ),
       body: (BookingsList.isEmpty)
           ? NoBookings()
           : ListView.builder(

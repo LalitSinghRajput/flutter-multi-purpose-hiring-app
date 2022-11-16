@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/functions.dart';
+import 'package:flutterapp/loading_screen.dart';
 import 'package:flutterapp/person_card.dart';
 
 class PersonList extends StatefulWidget {
@@ -85,6 +88,25 @@ class _PersonListState extends State<PersonList> {
       "rating": 4.5,
     },
   ];
+  bool isLoading = true;
+
+  List persons = [];
+  void fetchProfilesByCategory() async {
+    persons =
+        await Functions.getProfilesByCategory(widget.category.toLowerCase());
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProfilesByCategory();
+  }
+
+  @override
+  // Widget build(BuildContext context) =>isLoading?LoadingScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -93,32 +115,36 @@ class _PersonListState extends State<PersonList> {
         title: Text("Category: ${widget.category}"),
       ),
       backgroundColor: Color.fromARGB(255, 236, 237, 240),
-      body: Container(
-        // child: Expanded(
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 400,
-            childAspectRatio: 9 / 3,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 5,
-          ),
-          itemCount: person.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Expanded(
-                child: personCard(
-                  imgsrc: person[index]["imgsrc"],
-                  name: person[index]["name"],
-                  jobs: person[index]["jobs"],
-                  rating: person[index]["rating"],
+      body: isLoading
+          ? LoadingScreen()
+          : Container(
+              // child: Expanded(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 400,
+                  childAspectRatio: 9 / 3,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 5,
                 ),
+                itemCount: persons.length,
+                itemBuilder: (BuildContext context, int index) {
+                  print(persons[index]['_id']);
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Expanded(
+                      child: personCard(
+                        imgsrc: persons[index]["imgsrc"],
+                        name: persons[index]["name"],
+                        jobs: persons[index]["jobs"],
+                        rating: 4.5,
+                        id: persons[index]['_id'],
+                      ),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-        // ),
-      ),
+              // ),
+            ),
     );
   }
 }

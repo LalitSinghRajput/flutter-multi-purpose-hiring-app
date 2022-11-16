@@ -51,4 +51,48 @@ const profileByCategory = async (req, res) => {
     }
 }
 
-module.exports = { newprofile, profileByCategory, profileById };
+//get all profiles
+const getAllProfiles = async (req, res) => {
+    try {
+        const getAllProfiles = await Profiles.find();
+        console.log(",");
+
+        if (getAllProfiles.length == 0) {
+            return res.status(404).json({
+                status: 404,
+                message: "Database is empty"
+            })
+        }
+
+        res.status(200).json(getAllProfiles);
+
+    } catch (err) {
+        return res.status(400).json(err);
+    }
+}
+
+//update profile information by id
+const profileUpdate = async (req, res) => {
+    try {
+
+        let profile = await Profiles.findByIdAndUpdate(req.params.id, {
+            $set: req.body,
+        });
+        if (profile == null) {
+            return res.status(404).json({
+                status: 404,
+                message: "Profile does not exist"
+            })
+        }
+        let updatedProfile = await Profiles.findById(req.params.id);
+        res.status(200).json({
+            updatedProfile
+            // message: "Profile information updated successfully"
+        })
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
+
+module.exports = { newprofile, profileByCategory, profileById, getAllProfiles, profileUpdate };

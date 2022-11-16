@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/functions.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -8,6 +9,18 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  var currUser;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      currUser = Functions.user;
+      print("Current user: ");
+      print(currUser);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(padding: EdgeInsets.all(5.0)),
                   Text(
-                    'Rohan Sharma',
+                    currUser['name'],
                     style:
                         TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
                   ),
@@ -80,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(padding: EdgeInsets.all(5.0)),
                   Text(
-                    'rohan34@gmail.com',
+                    currUser['email'],
                     style:
                         TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
                   ),
@@ -111,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(padding: EdgeInsets.all(5.0)),
                   Text(
-                    '9545781245',
+                    currUser['mobileno'].toString(),
                     style:
                         TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
                   ),
@@ -142,7 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(padding: EdgeInsets.all(5.0)),
                   Text(
-                    'Sky height 45',
+                    currUser['address'],
                     style:
                         TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
                   ),

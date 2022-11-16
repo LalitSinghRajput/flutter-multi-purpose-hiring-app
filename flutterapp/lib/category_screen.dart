@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/functions.dart';
+import 'package:flutterapp/loading_screen.dart';
 import 'package:flutterapp/my_bookings.dart';
 import 'package:flutterapp/professional_category_screen.dart';
 import 'package:flutterapp/profile_screen.dart';
@@ -15,10 +17,13 @@ class categoryScreen extends StatefulWidget {
 class _categoryScreenState extends State<categoryScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
+    Functions.getAllProfiles();
+    isLoading = false;
     tabController = TabController(length: 3, vsync: this);
   }
 
@@ -42,6 +47,27 @@ class _categoryScreenState extends State<categoryScreen>
     fontSize: 20,
     fontWeight: FontWeight.w500,
   );
+
+  // function
+  // for emulator localhost is 10.0.2.2
+  // String baseUrl = "http://10.0.2.2:8000/profile/getAllProfiles";
+  // String baseUrl = "http://192.168.197.34:8000/profile/getAllProfiles";
+
+  // Future<List> getAllProfiles() async {
+  //   try {
+  //     var response = await http.get(Uri.parse(baseUrl));
+  //     if (response.statusCode == 200) {
+  //       print(response.body);
+  //       print(response.body.runtimeType);
+  //       return jsonDecode(response.body);
+  //     } else {
+  //       return Future.error('Server error');
+  //     }
+  //   } catch (e) {
+  //     return Future.error(e);
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,7 +208,7 @@ class _categoryScreenState extends State<categoryScreen>
               },
             ),
             GButton(
-              icon: Icons.account_balance_sharp,
+              icon: Icons.account_box,
               text: 'Profile',
               onPressed: () {
                 Navigator.push(

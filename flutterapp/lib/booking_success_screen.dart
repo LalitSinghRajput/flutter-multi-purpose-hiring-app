@@ -51,10 +51,11 @@ class _BookingSuccessState extends State<BookingSuccess>
                   Padding(padding: EdgeInsets.all(10)),
                   personCard(
                     imgsrc:
-                        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
-                    name: 'Rohit',
+                        'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600',
+                    name: 'Rohan Verma',
                     jobs: 450,
                     rating: 4.5,
+                    id: "jhgj",
                   ),
                   Padding(padding: EdgeInsets.all(10.0)),
                   Column(

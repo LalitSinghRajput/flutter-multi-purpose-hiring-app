@@ -49,7 +49,7 @@ class _ReviewContainerState extends State<ReviewContainer> {
                             fontSize: 18.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Nice job',
+                        'Excellent Teaching',
                         style: TextStyle(
                             fontSize: 15.0, fontWeight: FontWeight.w500),
                       ),

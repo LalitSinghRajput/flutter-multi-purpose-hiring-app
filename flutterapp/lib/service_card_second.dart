@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class serviceCardSecond extends StatefulWidget {
-  const serviceCardSecond({super.key});
+  final description, imgsrc, title;
+  const serviceCardSecond(
+      {super.key,
+      required this.description,
+      required this.imgsrc,
+      required this.title});
 
   @override
   State<serviceCardSecond> createState() => _serviceCardSecondState();
@@ -37,9 +42,9 @@ class _serviceCardSecondState extends State<serviceCardSecond> {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: Text(
-                          "Service 1",
+                          widget.title,
                           style: TextStyle(
-                              fontSize: 15.0, fontWeight: FontWeight.w500),
+                              fontSize: 20.0, fontWeight: FontWeight.w500),
                           // textAlign: TextAlign.end,
                         ),
                       ),
@@ -50,9 +55,9 @@ class _serviceCardSecondState extends State<serviceCardSecond> {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                          widget.description,
                           style: TextStyle(
-                              fontSize: 15.0, fontWeight: FontWeight.w400),
+                              fontSize: 18.0, fontWeight: FontWeight.w500),
                           // textAlign: TextAlign.end,
                         ),
                       ),
@@ -67,9 +72,7 @@ class _serviceCardSecondState extends State<serviceCardSecond> {
               borderRadius: BorderRadius.circular(20), // Image border
               child: SizedBox.fromSize(
                 size: Size.fromRadius(50), // Image radius
-                child: Image.network(
-                    "https://media.istockphoto.com/id/1165561132/photo/electrician-working-at-electric-panel.jpg?s=612x612&w=0&k=20&c=3_WYnt8wYvyIAxCXJdbvt50llvAwmU_M_1gw4cwUr9o=",
-                    fit: BoxFit.cover),
+                child: Image.network(widget.imgsrc, fit: BoxFit.cover),
               ),
             ),
           ],

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class serviceCardFirst extends StatefulWidget {
-  const serviceCardFirst({super.key});
+  final description, imgsrc, title;
+  const serviceCardFirst(
+      {super.key,
+      required this.description,
+      required this.imgsrc,
+      required this.title});
 
   @override
   State<serviceCardFirst> createState() => _serviceCardFirstState();
@@ -31,7 +36,8 @@ class _serviceCardFirstState extends State<serviceCardFirst> {
               child: SizedBox.fromSize(
                 size: Size.fromRadius(50), // Image radius
                 child: Image.network(
-                    "https://media.istockphoto.com/id/1165561132/photo/electrician-working-at-electric-panel.jpg?s=612x612&w=0&k=20&c=3_WYnt8wYvyIAxCXJdbvt50llvAwmU_M_1gw4cwUr9o=",
+                    // "https://media.istockphoto.com/id/1165561132/photo/electrician-working-at-electric-panel.jpg?s=612x612&w=0&k=20&c=3_WYnt8wYvyIAxCXJdbvt50llvAwmU_M_1gw4cwUr9o=",
+                    widget.imgsrc,
                     fit: BoxFit.cover),
               ),
             ),
@@ -48,9 +54,9 @@ class _serviceCardFirstState extends State<serviceCardFirst> {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: Text(
-                          "Service 1",
+                          widget.title,
                           style: TextStyle(
-                              fontSize: 15.0, fontWeight: FontWeight.w500),
+                              fontSize: 20.0, fontWeight: FontWeight.w500),
                           // textAlign: TextAlign.end,
                         ),
                       ),
@@ -61,9 +67,10 @@ class _serviceCardFirstState extends State<serviceCardFirst> {
                       alignment: Alignment.centerLeft,
                       child: Container(
                         child: Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                          // "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                          widget.description,
                           style: TextStyle(
-                              fontSize: 15.0, fontWeight: FontWeight.w400),
+                              fontSize: 18.0, fontWeight: FontWeight.w500),
                           // textAlign: TextAlign.end,
                         ),
                       ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/category_screen.dart';
+import 'package:flutterapp/login_screen.dart';
+import 'package:flutterapp/person_list.dart';
+import 'package:flutterapp/person_service.dart';
+import 'package:flutterapp/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       title: 'Project',
-      home: categoryScreen(),
+      home: SpalashScreen(),
     );
   }
 }

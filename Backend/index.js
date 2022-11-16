@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const profile = require("./routes/profile.js");
+const user = require("./routes/user.js");
+const booking = require('./routes/bookings.js');
 
 const app = express();
 app.use(express.json());
@@ -25,6 +27,8 @@ mongoose.connect(database_url, options, () => {
 });
 
 app.use('/profile', profile);
+app.use('/user', user);
+app.use('/bookings', booking);
 
 
 app.listen(PORT, () => {

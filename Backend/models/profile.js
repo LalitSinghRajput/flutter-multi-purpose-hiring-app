@@ -7,7 +7,7 @@ let profileSchema = new Schema({
         type: String,
         default: ""
     },
-    mobno: {
+    mobileno: {
         type: Number,
     },
     email: {
@@ -30,6 +30,14 @@ let profileSchema = new Schema({
         type: Number,
         default: 0
     },
+    jobs: {
+        type: String,
+        default: 0
+    },
+    service: {
+        type: Array,
+        default: []
+    }
 
 },
     { timestamps: true }

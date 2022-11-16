@@ -38,6 +38,7 @@ dependencies:
   intl: ^0.17.0
   lottie:
   google_nav_bar:
+  http:
 
 dev_dependencies:
   flutter_test:

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/person_service.dart';
 
 class personCard extends StatefulWidget {
-  final imgsrc, name, jobs, rating;
+  final imgsrc, name, jobs, rating, id;
   const personCard(
       {super.key,
       required this.imgsrc,
       required this.jobs,
       required this.rating,
-      required this.name});
+      required this.name,
+      required this.id});
 
   @override
   State<personCard> createState() => _personCardState();
@@ -97,7 +98,10 @@ class _personCardState extends State<personCard> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => personService()),
+          MaterialPageRoute(
+              builder: (context) => personService(
+                    id: widget.id,
+                  )),
         );
       },
     );

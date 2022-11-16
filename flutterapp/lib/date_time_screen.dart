@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/booking_success_screen.dart';
+import 'package:flutterapp/functions.dart';
 import 'package:intl/intl.dart';
 
 class DateTimeScreen extends StatefulWidget {
-  const DateTimeScreen({super.key});
+  final customerid, profileid;
+  const DateTimeScreen(
+      {super.key, required this.profileid, required String this.customerid});
 
   @override
   State<DateTimeScreen> createState() => _DateTimeScreenState();
@@ -30,6 +33,19 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
     });
   }
 
+  bool done = false;
+
+  void addNewBookingToDB(
+      String customerid, String profileid, String time, String date) async {
+    var res = await Functions.addNewBooking(customerid, profileid, time, date);
+    print(res);
+    if (res != 'error') {
+      setState(() {
+        done = true;
+      });
+    }
+  }
+
   void _showTimePicker() {
     showTimePicker(context: context, initialTime: TimeOfDay.now())
         .then((value) {
@@ -38,6 +54,8 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
       });
     });
   }
+
+  void addBookingToDatabase() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +91,10 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
                         Padding(padding: EdgeInsets.all(5.0)),
                         ElevatedButton(
                             onPressed: _showDateTimePicker,
-                            child: Text('Select Date')),
+                            child: Text(
+                              'Select Date',
+                              style: TextStyle(fontSize: 20),
+                            )),
                         Padding(padding: EdgeInsets.all(10.0)),
                         Text(_timeOfDay.format(context).toString(),
                             style: TextStyle(
@@ -81,7 +102,8 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
                         Padding(padding: EdgeInsets.all(5.0)),
                         ElevatedButton(
                             onPressed: _showTimePicker,
-                            child: Text('Select Time')),
+                            child: Text('Select Time',
+                                style: TextStyle(fontSize: 20))),
                         Padding(padding: EdgeInsets.all(10.0)),
                         TextFormField(
                           decoration: InputDecoration(
@@ -104,10 +126,18 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
                             if (_formKey.currentState!.validate()) {
                               setState(() {
                                 address = addressController.text;
-                                // name = nameController.text;
-                                // email = emailController.text;
-                                // password = passwordController.text;
                               });
+                              // print(address);
+                              // print(widget.customerid);
+                              // print(widget.profileid);
+                              // print(selectedDate);
+                              // print(_timeOfDay.format(context).toString());
+                              addNewBookingToDB(
+                                  widget.customerid,
+                                  widget.profileid,
+                                  _timeOfDay.format(context).toString(),
+                                  selectedDate);
+                              // if (done == true)
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -115,7 +145,7 @@ class _DateTimeScreenState extends State<DateTimeScreen> {
                               );
                             }
                           },
-                          child: Text('Submit'),
+                          child: Text('Submit', style: TextStyle(fontSize: 20)),
                         ),
                       ],
                     ))),

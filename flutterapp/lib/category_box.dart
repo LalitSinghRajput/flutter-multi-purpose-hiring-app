@@ -65,7 +65,7 @@ class _CategoryBoxState extends State<CategoryBox> {
             MaterialPageRoute(
                 builder: (context) =>
                     PersonList(category: widget.categoryTitle)),
-          );
+          ).then((value) => setState(() {}));
 
           // ScaffoldMessenger.of(context).showSnackBar(
           //     SnackBar(content: Text("Selected: ${widget.categoryTitle}")));
